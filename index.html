@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global DNS Connectivity Tester</title>
+    <meta name="description" content="Test your DNS connectivity with servers around the world">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🌐 Global DNS Tester</h1>
+            <p class="subtitle">Test your DNS connectivity against servers worldwide</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="test-section">
+            <div class="controls">
+                <button id="run-test" class="btn primary">
+                    <i class="fas fa-play"></i> Run Tests
+                </button>
+                <button id="custom-test" class="btn secondary">
+                    <i class="fas fa-sliders-h"></i> Custom Test
+                </button>
+                <div class="spinner hidden" id="spinner"></div>
+            </div>
+
+            <div class="custom-test-panel hidden" id="custom-panel">
+                <h3>Custom DNS Servers</h3>
+                <div class="input-group">
+                    <textarea id="custom-servers" placeholder="Enter DNS servers (one per line)&#10;Example:&#10;8.8.8.8&#10;1.1.1.1&#10;9.9.9.9"></textarea>
+                </div>
+                <button id="run-custom-test" class="btn primary">
+                    <i class="fas fa-play"></i> Test Custom Servers
+                </button>
+            </div>
+
+            <div class="results" id="results">
+                <div class="result-summary hidden" id="summary">
+                    <h3>Test Summary</h3>
+                    <div class="summary-stats">
+                        <div class="stat-box">
+                            <span class="stat-value" id="total-tests">0</span>
+                            <span class="stat-label">Total Tests</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-value" id="success-rate">0%</span>
+                            <span class="stat-label">Success Rate</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-value" id="avg-time">0ms</span>
+                            <span class="stat-label">Avg. Response</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-details">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>DNS Server</th>
+                                <th>Location</th>
+                                <th>Status</th>
+                                <th>Response Time</th>
+                                <th>Your IP</th>
+                            </tr>
+                        </thead>
+                        <tbody id="results-body">
+                            <!-- Results will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="info-card">
+                <h3><i class="fas fa-info-circle"></i> About This Tool</h3>
+                <p>This DNS tester checks your connection to various public DNS servers around the world. It helps diagnose DNS issues by showing which servers are reachable from your location.</p>
+            </div>
+
+            <div class="info-card">
+                <h3><i class="fas fa-question-circle"></i> How It Works</h3>
+                <ol>
+                    <li>Click "Run Tests" to check against popular DNS providers</li>
+                    <li>View response times and success status for each server</li>
+                    <li>Use "Custom Test" to check specific DNS servers</li>
+                </ol>
+            </div>
+
+            <div class="info-card">
+                <h3><i class="fas fa-lightbulb"></i> Interpreting Results</h3>
+                <ul>
+                    <li><span class="status success">Success</span> means the DNS server responded</li>
+                    <li><span class="status failed">Failed</span> means the server didn't respond</li>
+                    <li>Response times under 100ms are excellent</li>
+                    <li>Times over 300ms may indicate problems</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>DNS Connectivity Tester - Open Source Project</p>
+            <p>
+                <a href="https://github.com/yourusername/dns-tester" target="_blank" rel="noopener">
+                    <i class="fab fa-github"></i> View on GitHub
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
